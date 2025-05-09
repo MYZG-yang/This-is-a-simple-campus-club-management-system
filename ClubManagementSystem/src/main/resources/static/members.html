@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成员管理 - 社团管理系统</title>
+    <link rel="stylesheet" href="css/members.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">社团管理系统</div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="clubs.html">社团</a></li>
+                <li><a href="members.html" class="active">成员</a></li>
+                <li><a href="activities.html">活动</a></li>
+                <li><a href="finance.html">经费</a></li>
+                <li><a href="profile.html">个人中心</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="members-header">
+            <h1>成员管理</h1>
+            <button id="addMemberBtn" class="btn-primary">新增成员</button>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="搜索成员...">
+            <select id="clubFilter">
+                <option value="">所有社团</option>
+                <!-- 社团选项将通过JavaScript动态加载 -->
+            </select>
+            <select id="roleFilter">
+                <option value="">所有身份</option>
+                <option value="社长">社长</option>
+                <option value="副社长">副社长</option>
+                <option value="部长">部长</option>
+                <option value="普通成员">普通成员</option>
+            </select>
+        </div>
+
+        <div class="members-table-container">
+            <table class="members-table">
+                <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>学号</th>
+                        <th>加入日期</th>
+                        <th>身份</th>
+                        <th>联系方式</th>
+                        <th>所属社团</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="membersTableBody">
+                    <!-- 数据将通过JavaScript动态加载 -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 新增/编辑成员的模态框 -->
+        <div id="memberModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="modalTitle">新增成员</h2>
+                <form id="memberForm">
+                    <input type="hidden" id="memberId">
+                    <div class="form-group">
+                        <label for="memberName">姓名</label>
+                        <input type="text" id="memberName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="studentId">学号</label>
+                        <input type="text" id="studentId" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">密码</label>
+                        <input type="text" id="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="joinDate">加入日期</label>
+                        <input type="date" id="joinDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="role">身份</label>
+                        <select id="role" required>
+                            <option value="社长">社长</option>
+                            <option value="副社长">副社长</option>
+                            <option value="部长">部长</option>
+                            <option value="普通成员">普通成员</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact">联系方式</label>
+                        <input type="text" id="contact" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="clubId">所属社团</label>
+                        <select id="clubId" required>
+                            <!-- 社团选项将通过JavaScript动态加载 -->
+                        </select>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" class="btn-primary">保存</button>
+                        <button type="button" class="btn-secondary" id="cancelBtn">取消</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/members.js"></script>
+</body>
+</html> 

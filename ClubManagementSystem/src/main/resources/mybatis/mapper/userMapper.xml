@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myzg.clubmanagementsystem.dao.UserDao">
+    <select id="login" resultType="hashmap">
+        select  studentId,role from  user where studentId=#{studentId} and password=#{password}
+    </select>
+    <select id="user" resultType="hashmap">
+        select *
+        from clubmanagementsystem.user left join clubmanagementsystem.club c on c.ClubId = user.clubId
+    </select>
+    <select id="getUser" resultType="hashmap">
+        select *
+        from clubmanagementsystem.user left join clubmanagementsystem.club c on c.ClubId = user.clubId where studentId=#{studentId}
+    </select>
+    <update id="updateUser">
+        update clubmanagementsystem.user set userName=#{userName},accDate=#{accDate},role=#{role},conInfo=#{conInfo},clubId=#{clubId},password=#{password} where studentId=#{studentId}
+    </update>
+    <insert id="addUser">
+        insert into clubmanagementsystem.user values (#{userName},#{studentId},#{accDate},#{role},#{conInfo},#{clubId},#{password})
+    </insert>
+    <delete id="deleteUser">
+        delete from clubmanagementsystem.user where studentId=#{studentId}
+    </delete>
+</mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myzg.clubmanagementsystem.dao.FinanceDao">
+    <select id="finance" resultType="hashmap">
+        select * from clubmanagementsystem.finance left join clubmanagementsystem.club c on c.ClubId = finance.clubId
+    </select>
+    <insert id="addFinance" useGeneratedKeys="true" keyProperty="financeId">
+        insert into finance(financeName,financeSum,financeType,recordDate,financeInfo,clubId) values(#{financeName},#{financeSum},#{financeType},#{recordDate},#{financeInfo},#{clubId})
+    </insert>
+    <delete id="deleteFinance">
+        delete from finance where financeId=#{financeId}
+    </delete>
+    <update id="updateFinance">
+        update finance set financeName=#{financeName},financeSum=#{financeSum},financeType=#{financeType},recordDate=#{recordDate},financeInfo=#{financeInfo},clubId=#{clubId} where financeId=#{financeId}
+    </update>
+    <select id="getFinance" resultType="hashmap">
+        select * from finance where financeId=#{financeId}
+    </select>
+</mapper>

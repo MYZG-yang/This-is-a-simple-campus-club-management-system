@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myzg.clubmanagementsystem.dao.ClubDao">
+    <select id="clubQ" resultType="hashmap">
+        select * from clubmanagementsystem.club
+    </select>
+    <insert id="addClub" useGeneratedKeys="true" keyProperty="ClubId">
+        insert into clubmanagementsystem.club(ClubName,ClubType,Originator,EstablishmentDate,Introduction,State) values(#{clubName},#{clubType},#{originator},#{estaDate},#{introduction},#{status})
+    </insert>
+    <delete id="deleteClub">
+        delete from clubmanagementsystem.club where ClubId=#{clubId}
+    </delete>
+    <update id="updateClub">
+        update clubmanagementsystem.club set ClubName=#{clubName},ClubType=#{clubType},Originator=#{originator},EstablishmentDate=#{estaDate},Introduction=#{introduction},State=#{status} where ClubId=#{clubId}
+    </update>
+    <select id="getClub" resultType="hashmap">
+        select * from clubmanagementsystem.club where ClubId=#{clubId}
+    </select>
+</mapper>

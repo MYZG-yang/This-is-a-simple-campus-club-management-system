@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人中心 - 社团管理系统</title>
+    <link rel="stylesheet" href="css/profile.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">社团管理系统</div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="clubs.html">社团</a></li>
+                <li><a href="members.html">成员</a></li>
+                <li><a href="activities.html">活动</a></li>
+                <li><a href="finance.html">经费</a></li>
+                <li><a href="profile.html" class="active">个人中心</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="profile-container">
+            <div class="profile-header">
+                <h1 id="userName">加载中...</h1>
+            </div>
+            <div class="profile-info">
+                <div class="info-card">
+                    <h2>基本信息</h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <label>学号</label>
+                            <span id="studentId">加载中...</span>
+                        </div>
+                        <div class="info-item">
+                            <label>身份</label>
+                            <span id="role">加载中...</span>
+                        </div>
+                        <div class="info-item">
+                            <label>加入日期</label>
+                            <span id="joinDate">加载中...</span>
+                        </div>
+                        <div class="info-item">
+                            <label>联系方式</label>
+                            <span id="contact">加载中...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h2>所属社团</h2>
+                    <div class="club-list" id="clubList">
+                        <!-- 社团列表将通过JavaScript动态加载 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/profile.js"></script>
+</body>
+</html> 

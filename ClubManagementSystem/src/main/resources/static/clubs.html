@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社团管理 - 社团管理系统</title>
+    <link rel="stylesheet" href="css/clubs.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">社团管理系统</div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="clubs.html" class="active">社团</a></li>
+                <li><a href="members.html">成员</a></li>
+                <li><a href="activities.html">活动</a></li>
+                <li><a href="finance.html">经费</a></li>
+                <li><a href="profile.html">个人中心</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="clubs-header">
+            <h1>社团管理</h1>
+            <button id="addClubBtn" class="btn-primary">新增社团</button>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="搜索社团...">
+            <select id="typeFilter">
+                <option value="">所有类型</option>
+                <option value="学术">学术</option>
+                <option value="体育">体育</option>
+                <option value="艺术">艺术</option>
+                <option value="公益">公益</option>
+            </select>
+            <select id="statusFilter">
+                <option value="">所有状态</option>
+                <option value="正常">正常</option>
+                <option value="待审核">待审核</option>
+                <option value="已停用">已停用</option>
+            </select>
+        </div>
+
+        <div class="clubs-table-container">
+            <table class="clubs-table">
+                <thead>
+                    <tr>
+                        <th>社团编号</th>
+                        <th>社团名称</th>
+                        <th>社团类型</th>
+                        <th>创始人</th>
+                        <th>成立日期</th>
+                        <th>社团简介</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="clubsTableBody">
+                    <!-- 数据将通过JavaScript动态加载 -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 新增/编辑社团的模态框 -->
+        <div id="clubModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="modalTitle">新增社团</h2>
+                <form id="clubForm">
+                    <input type="hidden" id="clubId">
+                    <div class="form-group">
+                        <label for="clubName">社团名称</label>
+                        <input type="text" id="clubName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="clubType">社团类型</label>
+                        <select id="clubType" required>
+                            <option value="学术">学术</option>
+                            <option value="体育">体育</option>
+                            <option value="艺术">艺术</option>
+                            <option value="公益">公益</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="founder">创始人</label>
+                        <input type="text" id="founder" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="establishDate">成立日期</label>
+                        <input type="date" id="establishDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">社团简介</label>
+                        <textarea id="description" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">状态</label>
+                        <select id="status" required>
+                            <option value="正常">正常</option>
+                            <option value="待审核">待审核</option>
+                            <option value="已停用">已停用</option>
+                        </select>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" class="btn-primary">保存</button>
+                        <button type="button" class="btn-secondary" id="cancelBtn">取消</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/clubs.js"></script>
+</body>
+</html> 

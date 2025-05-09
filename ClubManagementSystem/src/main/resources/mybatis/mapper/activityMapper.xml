@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myzg.clubmanagementsystem.dao.ActivityDao">
+    <select id="activity" resultType="hashmap">
+        select * from clubmanagementsystem.activity left join clubmanagementsystem.club c on c.ClubId = activity.ClubId
+    </select>
+    <select id="getActivity" resultType="hashmap">
+        select * from clubmanagementsystem.activity left join clubmanagementsystem.club c on c.ClubId = activity.ClubId where ActId=#{activityId}
+    </select>
+    <insert id="addActivity" useGeneratedKeys="true" keyProperty="ClubId">
+        insert into activity(ActName,ActType,ActDate,ActPlace,Att,ActInfo,ClubId) values (#{ActName},#{ActType},#{ActDate},#{ActPlace},#{Att},#{ActInfo},#{ClubId})
+    </insert>
+    <update id="updateActivity">
+        update activity set ActName=#{ActName},ActType=#{ActType},ActDate=#{ActDate},ActPlace=#{ActPlace},Att=#{Att},ActInfo=#{ActInfo},ClubId=#{ClubId} where ActId=#{ActId}
+    </update>
+    <delete id="deleteActivity">
+        delete from activity where ActId=#{activityId}
+    </delete>
+</mapper>
